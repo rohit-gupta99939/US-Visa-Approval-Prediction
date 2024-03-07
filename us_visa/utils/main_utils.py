@@ -9,7 +9,8 @@ from pandas import DataFrame
 from us_visa.exception import UsvisaException
 from us_visa.logger import logging
 
-def read_yaml_file(filename: str)-> dict:
+def read_yaml_file(file_path: str)-> dict:
+    """ This function reads the yaml file"""
     try:
         with open(file_path, "rb") as yaml_file:
             return yaml.safe_load(yaml_file)
@@ -18,6 +19,7 @@ def read_yaml_file(filename: str)-> dict:
 
 
 def write_yaml_file(file_path: str, content: object, replace : bool = False) ->None:
+    """This function writes information in the yaml file"""
     try:
         if replace:
             if os.path.exists(file_path):

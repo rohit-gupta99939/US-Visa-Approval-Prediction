@@ -10,6 +10,8 @@ ca = certifi.where()
 
 class MongoDBClint:
     """
+    This class establishes the connection to the MongoDB
+    before using the class assign environment variables MONGODB_URL and url values.
     """
 
     clint = None

@@ -28,6 +28,7 @@ class DataIngestion:
             feature_store_file_path = self.data_ingestion_config.feature_store_file_path
             dir_path = os.path.dirname(feature_store_file_path)
             os.makedirs(dir_path, exist_ok=True)
+            dataframe.to_csv(feature_store_file_path,index=False,header=True)
             logging.info(f"Save exported data into feature store file path :{feature_store_file_path}")
 
             return dataframe
