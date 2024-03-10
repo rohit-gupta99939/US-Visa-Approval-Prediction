@@ -84,6 +84,7 @@ class USvisaClassifier:
         
     def predict(self,dataframe)->str:
         """
+        show
         """
         try:
             logging.info("Enterd predict method as USvisaClassifier class")
