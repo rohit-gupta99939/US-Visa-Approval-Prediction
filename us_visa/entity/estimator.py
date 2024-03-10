@@ -1,6 +1,8 @@
 import sys
 from pandas import DataFrame
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler,OneHotEncoder,OrdinalEncoder,PowerTransformer
+from sklearn.compose import ColumnTransformer
 
 from us_visa.exception import UsvisaException
 from us_visa.logger import logging
@@ -25,16 +27,17 @@ class USvisaModel:
         self.preprocessing_object = preprocessing_object
         self.trained_model_object = trained_model_object
 
-    def predict(self,dataframe:DataFrame) -> DataFrame:
+    def predict(self,dataframe:DataFrame ) -> DataFrame:
         """
         """
         logging.info("Entering predict method of USvisaModel class")
         try:
             logging.info("using trained model to get predictions")
 
-            transformed_features = self.preprocessing_object.transform(dataframe)
+            print(self.preprocessing_object)
+            transformed_feature = self.preprocessing_object.transform(dataframe)
             
-            return self.trained_model_object.predict(transformed_features)
+            return self.trained_model_object.predict(transformed_feature)
         except Exception as e:
             raise UsvisaException(e,sys)
         

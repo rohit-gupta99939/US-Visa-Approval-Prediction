@@ -60,7 +60,7 @@ class ModelTrainer:
             best_model_detail ,metric_artifact = self.get_model_object_and_report(train=train_arr,test=test_arr)
 
             preprocessing_obj = load_object(file_path=self.data_transformation_artifact.transformation_object_file_path)
-
+            print("preprocessing_obj 01",preprocessing_obj)
             if best_model_detail.best_score < self.model_trainer_config.expected_accuracy:
                 logging.info("No best model found with score more than base score")
                 raise Exception("No best model found with score more than base score")
@@ -68,8 +68,9 @@ class ModelTrainer:
             usvisa_model = USvisaModel(preprocessing_object = preprocessing_obj, trained_model_object = best_model_detail.best_model)
             logging.info("Created usvisa model object with preprocessing and model")
             logging.info("created best model file path.")
+            print("usvisa_model:",usvisa_model)
             save_object(self.model_trainer_config.trained_model_file_path, usvisa_model)
-
+ 
             model_trainer_artifact = ModelTrainerArtifact(
                 trained_model_file_path= self.model_trainer_config.trained_model_file_path,
                 metric_artifact= metric_artifact

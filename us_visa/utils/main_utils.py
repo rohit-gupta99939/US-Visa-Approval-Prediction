@@ -37,6 +37,7 @@ def load_object(file_path:str)-> object:
         with open(file_path, "rb") as file_obj:
             obj = dill.load(file_obj)
         logging.info("Exited the load_object method of utils")
+        return obj
     except Exception as e:
         raise UsvisaException(e,sys)
     
