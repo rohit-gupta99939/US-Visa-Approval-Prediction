@@ -49,3 +49,7 @@
 -- this file is used for stylesheet for our usvisa.html
 # step 26: write code for app.py
 -- this file is our fast-api 
+
+# step 27: write Dockerfile
+# step 28: create .github/workflows/aws.yml
+-- write instruction in aws.yml
